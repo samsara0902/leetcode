@@ -1,0 +1,18 @@
+ def contains_one(node):
+            if not node:
+                return False
+            if node.val == 1:
+                return True
+            return contains_one(node.left) or contains_one(node.right)
+        
+        if not root:
+            return None
+        
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
+        
+      
+        if root.val == 0 and not contains_one(root.left) and not contains_one(root.right):
+            return None
+        
+        return root
